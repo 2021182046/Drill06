@@ -21,12 +21,17 @@ def handle_events():
 
 running = True
 x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
+character_x = TUK_WIDTH//2
+character_y = TUK_HEIGHT//2
+frame = 0
 hide_cursor()
 
 while running:
     clear_canvas()
     TUK_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
     mouse.draw(x, y)
+    character.clip_draw(frame * 100, 0, 100, 100, character_x, character_y)
+    frame = (frame + 1) % 8
     update_canvas()
 
     handle_events()

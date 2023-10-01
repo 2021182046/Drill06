@@ -7,6 +7,15 @@ TUK_ground = load_image('TUK_GROUND.png')
 character = load_image('animation_sheet.png')
 mouse = load_image('hand_arrow.png')
 
+def draw_line(p1, p2):
+    x1, y1 = p1[0], p1[1] #(-100, -100)
+    x2, y2 = p2[0], p2[1] #(300, 150)
+
+    for i in range(0, 100+1, 3):
+        t = i/100
+        x = (1-t)*x1 + t*x2
+        y = (1-t)*y1 + t*y2
+
 def handle_events():
     global running
     global x, y
